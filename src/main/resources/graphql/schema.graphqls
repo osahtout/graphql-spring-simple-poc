@@ -1,0 +1,33 @@
+type Query {
+    getAuthors: [Author]
+    getBooks: [Book]
+
+    getAuthorById(id: Int!): Author
+    getBookById(id: Int!): Book
+}
+
+
+type Author {
+    id: ID!
+    name: String
+    books: [Book]
+}
+
+
+type Book {
+    id: ID!
+    title: String!
+    chapters: Int
+}
+
+## Mutations ##
+
+type Mutation {
+    createBook(bookInput: BookInput): Book
+}
+
+input BookInput {
+    title: String
+    chapters: Int
+    authorId: ID
+}
