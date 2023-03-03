@@ -1,20 +1,28 @@
 package com.graphqlexample.graphqlExample.entities;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import lombok.AllArgsConstructor;
 import lombok.Generated;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 public class Book implements Serializable
 {
+	@Id
+	@Generated
+	private long id;
+	private String title;
+
+	private int chapters;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private Author author;
+
+
+
 	private static long ids = 0;
 	public Book()
 	{
@@ -39,13 +47,5 @@ public class Book implements Serializable
 		this.chapters = chapters;
 		this.author = author;
 	}
-	@Id
-	@Generated
-	private long id;
-	private String title;
 
-	private int chapters;
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Author author;
 }

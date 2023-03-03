@@ -31,7 +31,7 @@ public class GraphqlExampleApplication
 			Author joe = authorRepository.save(new Author("Joe", 2001));
 
 			bookRepository.saveAll(List.of(
-					new Book("notHarryPotter", 50, bob),
+					new Book("not Harry Potter", 50, bob),
 					new Book("Fake Song of Ice and Fire", 70, joe)
 			));
 		};
